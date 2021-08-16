@@ -1,2 +1,3 @@
 #!/bin/bash
-docker build -t crawler .
+DIRNAME=${pwd | sed -e 's%/.*/%%g'}
+docker build -t ${DIRNAME} .
