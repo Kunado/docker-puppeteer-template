@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm -it -v $(pwd)/dist:/home/node crawler node crawler.js
+docker run --rm -it -v $(pwd):/home/pptruser crawler node dist/crawler.js

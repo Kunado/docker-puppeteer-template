@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer-core'
 
 (async () => {
-  const url = 'https://example.com'
+  const url = 'https://google.com'
   const browser = await puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
@@ -10,9 +10,9 @@ const puppeteer = require('puppeteer');
   page.setUserAgent(userAgent);
 
   await page.goto(url, { timeout: 600000, waitUntil: 'networkidle0' });
-  const pageTitle = await page.$eval('body div h1', ( element: Element ) => element.textContent)
+  const pageContent = await page.$eval('body', ( element: Element ) => element.textContent)
 
-  console.log(pageTitle)
+  console.log(pageContent)
 
   await browser.close();
 }) ();
